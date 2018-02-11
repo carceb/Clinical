@@ -23,7 +23,7 @@ namespace Clinical
         {
             try
             {
-                int codigoConsultorio = Convert.ToInt32(this.Session["CodigoEmpresa"].ToString());
+                int codigoConsultorio = Convert.ToInt32(this.Session["CodigoSucursalEmpresa"].ToString());
                 DataSet ds = CitaCola.ObtenerColaDeCitas(codigoConsultorio, txtFechaCita.Text);
                 DataTable dt = ds.Tables[0];
                 gridDetalle.DataSource = dt;
@@ -102,6 +102,7 @@ namespace Clinical
                     objetoAsignaEstatus.EstatusCitaID = Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlEstatus")).SelectedValue);
                     objetoAsignaEstatus.CitaID = Utils.utils.ToInt(((TextBox)dr.FindControl("txtCitaID")).Text);
                     objetoAsignaEstatus.DescripcionPadecimiento = Utils.utils.ToString(((TextBox)dr.FindControl("txtDescripcionPadecimiento")).Text);
+                    objetoAsignaEstatus.MedicoConsultorioID = Utils.utils.ToInt(((TextBox)dr.FindControl("txtMedicoConsultorioID")).Text);
                     if (objetoAsignaEstatus.EstatusCitaID == 0)
                         sResultado = "Estatus <br>";
                     objetoAsignarEstatus.Add(objetoAsignaEstatus);

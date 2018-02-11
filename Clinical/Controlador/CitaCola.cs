@@ -26,7 +26,8 @@ namespace Clinical
             {
                     DBHelper.MakeParam("@CitaID", SqlDbType.Int, 0, objetoCita.CitaID),
                     DBHelper.MakeParam("@EstatusCitaID", SqlDbType.Int, 0, objetoCita.EstatusCitaID),
-                    DBHelper.MakeParam("@DescripcionPadecimiento", SqlDbType.VarChar, 0, objetoCita.DescripcionPadecimiento)
+                    DBHelper.MakeParam("@DescripcionPadecimiento", SqlDbType.VarChar, 0, objetoCita.DescripcionPadecimiento),
+                    DBHelper.MakeParam("@MedicoConsultorioD", SqlDbType.Int, 0, objetoCita.MedicoConsultorioID)
             };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_CitaCola_ActualizarEstatusCita", dbParams));
         }

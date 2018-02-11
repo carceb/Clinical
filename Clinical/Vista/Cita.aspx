@@ -12,7 +12,7 @@
     <title>clinical | Solicitud de Cita M&eacute;dica en venezuela VZLA|</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../citasassets/css/main.css" />
 
     <style type="text/css">
         .auto-style3 {
@@ -212,10 +212,10 @@
         </div>
 
         <!-- Scripts -->
-        <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/skel.min.js"></script>
-        <script src="../assets/js/util.js"></script>
-        <script src="../assets/js/main.js"></script>
+        <script src="../citasassets/js/jquery.min.js"></script>
+        <script src="../citasassets/js/skel.min.js"></script>
+        <script src="../citasassets/js/util.js"></script>
+        <script src="../citasassets/js/main.js"></script>
 
         <script src="../js/Util.js" type="text/javascript"></script>
         <script src="../js/jquery.js"></script>

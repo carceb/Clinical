@@ -14,7 +14,7 @@
 		<title>clinical | Agendar Cita M&eacute;dica |</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../citasassets/css/main.css" />
         <script src="../js/Util.js" type="text/javascript"></script>
 	    </head>
 	<body>
@@ -48,7 +48,7 @@
 						<ul>
 							<li><a href="../Index.aspx">Home</a></li>
                             <li><a href="Cita.aspx">Citas </a></li>
-                            <li><a href="../Login.aspx">Entrar al sistema (M&eacute;dicos afiliados)</a></li>
+                            <li><a href="Login.aspx">Entrar al sistema (M&eacute;dicos afiliados)</a></li>
 						</ul>
 					</nav>
 
@@ -76,10 +76,10 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/skel.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
+			<script src="../citasassets/js/jquery.min.js"></script>
+			<script src="../citasassets/js/skel.min.js"></script>
+			<script src="../citasassets/js/util.js"></script>
+			<script src="../citasassets/js/main.js"></script>
 
             <script src="../js/Util.js" type="text/javascript"></script>
             <script src="../js/jquery.js"></script>

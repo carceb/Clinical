@@ -3,10 +3,10 @@
 @import 'libs/mixins';
 @import 'libs/skel';
 @import 'font-awesome.min.css';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700');
 
 /*
-	Phantom by HTML5 UP
+	Editorial by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -17,27 +17,15 @@
 		medium: '(max-width: 980px)',
 		small: '(max-width: 736px)',
 		xsmall: '(max-width: 480px)',
-		xxsmall: '(max-width: 360px)'
+		xxsmall: '(max-width: 360px)',
+		xlarge-to-max: '(min-width: 1681px)',
+		small-to-xlarge: '(min-width: 481px) and (max-width: 1680px)'
 	));
 
 	@include skel-layout((
 		reset: 'full',
 		boxModel: 'border',
-		grid: (
-			gutters: 2em
-		),
-		breakpoints: (
-			medium: (
-				grid: (
-					gutters: 1.5em
-				)
-			),
-			small: (
-				grid: (
-					gutters: 1em
-				)
-			)
-		)
+		grid: ( gutters: 1.5em )
 	));
 
 // Base.
@@ -48,19 +36,23 @@
 // Component.
 
 	@import 'components/section';
-	@import 'components/icon';
-	@import 'components/list';
 	@import 'components/form';
 	@import 'components/box';
+	@import 'components/icon';
 	@import 'components/image';
+	@import 'components/list';
 	@import 'components/table';
 	@import 'components/button';
-	@import 'components/tiles';
+	@import 'components/mini-posts';
+	@import 'components/features';
+	@import 'components/posts';
 
 // Layout.
 
-	@import 'layout/header';
-	@import 'layout/menu';
-	@import 'layout/main';
-	@import 'layout/footer';
 	@import 'layout/wrapper';
+	@import 'layout/main';
+	@import 'layout/sidebar';
+	@import 'layout/header';
+	@import 'layout/banner';
+	@import 'layout/footer';
+	@import 'layout/menu';

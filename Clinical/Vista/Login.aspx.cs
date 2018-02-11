@@ -65,7 +65,7 @@ namespace Seguridad
                     this.Session["CodigoSucursalEmpresa"] = ddlEmpresa.SelectedValue;
                     this.Session["NombreEmpresa"] = ddlEmpresa.SelectedItem;
                     this.Session["LogoEmpresa"] = LogoEmpresa(Convert.ToInt32(ddlEmpresa.SelectedValue));
-                    Response.Redirect("/Vista/Main.aspx");
+                    Response.Redirect("/Vista/Principal.aspx");
                 }
 
             }

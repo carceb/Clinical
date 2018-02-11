@@ -4,18 +4,18 @@
 
 <!DOCTYPE HTML>
 <!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Phantom by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>clinical | Agendar Cita M&eacute;dica |</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
+    <head>
+        <title>clinical | Agendar Cita M&eacute;dica |</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="../citasassets/css/main.css" />
         <script src="../js/Util.js" type="text/javascript"></script>
-	    <style type="text/css">
+        <style type="text/css">
             .auto-style1 {
                 width: 51%;
             }
@@ -23,48 +23,48 @@
                 width: 430px;
             }
         </style>
-	    </head>
-	<body>
+        </head>
+    <body>
      <MsgBox:UCMessageBox ID="messageBox" runat="server" ></MsgBox:UCMessageBox>
 
 <form id="form1" runat="server">
-		<!-- Wrapper -->
-			<div id="wrapper">
+        <!-- Wrapper -->
+            <div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
+                <!-- Header -->
+                    <header id="header">
+                        <div class="inner">
 
-							<!-- Logo -->
-								<a href="Index.aspx" class="logo">
-									<span class="symbol"><img src="../images/logo.png" alt="" /></span><span class="title"></span>
-								</a>
+                            <!-- Logo -->
+                                <a href="Index.aspx" class="logo">
+                                    <span class="symbol"><img src="../images/logo.png" alt="" /></span><span class="title"></span>
+                                </a>
 
-							<!-- Nav -->
-								<nav>
-									<ul>
-										<li><a href="#menu">Menu</a></li>
-									</ul>
-								</nav>
-						</div>
-					</header>
+                            <!-- Nav -->
+                                <nav>
+                                    <ul>
+                                        <li><a href="#menu">Menu</a></li>
+                                    </ul>
+                                </nav>
+                        </div>
+                    </header>
 
-				<!-- Menu -->
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="../Index.aspx">Home</a></li>
+                <!-- Menu -->
+                    <nav id="menu">
+                        <h2>Menu</h2>
+                        <ul>
+                            <li><a href="../Index.aspx">Home</a></li>
                             <li><a href="Cita.aspx">Citas </a></li>
                             <li><a href="../Login.aspx">Entrar al sistema (M&eacute;dicos afiliados)</a></li>
-						</ul>
-					</nav>
+                        </ul>
+                    </nav>
 
-				<!-- Main -->
-					<div id="main" >
-						<div  class="inner" >
-							<h1>Agendar Cita M&eacute;dica</h1>
+                <!-- Main -->
+                    <div id="main" >
+                        <div  class="inner" >
+                            <h1>Agendar Cita M&eacute;dica</h1>
                             <asp:Label runat="server" ID ="lblTitulo" Font-Size="Small" Width ="432px" Font-Bold="True" ForeColor="#CC0000">Usted seleccionó al Dr. Ingrid Yepez en su consultorio en la ciudad de Los Teques en el turno de las 2 pm. Coloque sus datos para agendar la cita</asp:Label>
-	                            <table class="auto-style1" >
+                                <table class="auto-style1" >
                                     <tr>
                                         <td >
                                             <asp:Label Text="Fecha Cita" ID="Label4" runat="server" AssociatedControlID="txtFechaCita"  />
@@ -127,33 +127,33 @@
                                     </td>
                                     </tr>
                                 </table>
-						</div>
-					</div>
+                        </div>
+                    </div>
 
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
+                <!-- Footer -->
+                    <footer id="footer">
+                        <div class="inner">
 
-							<ul class="copyright">
-								<li>&copy; clinical. Todos los Derechos Reservados</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
+                            <ul class="copyright">
+                                <li>&copy; clinical. Todos los Derechos Reservados</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                            </ul>
+                        </div>
 
-					</footer>
+                    </footer>
 
-			</div>
+            </div>
 
-		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/skel.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
+        <!-- Scripts -->
+            <script src="../citasassets/js/jquery.min.js"></script>
+            <script src="../citasassets/js/skel.min.js"></script>
+            <script src="../citasassets/js/util.js"></script>
+            <script src="../citasassets/js/main.js"></script>
 
             <script src="../js/Util.js" type="text/javascript"></script>
             <script src="../js/jquery.js"></script>
             <script src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
 
 </form>
-	</body>
+    </body>
 </html>

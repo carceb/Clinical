@@ -8,20 +8,22 @@ namespace Clinical
 {
     public partial class AtencionDoctor
     {
-        public static SqlDataReader ObtenerDatosPacienteEnAtencion(int codigoConsultorio, string fechaCita)
+        public static SqlDataReader ObtenerDatosPacienteEnAtencion(int codigoConsultorio, string fechaCita, int codigoMedico)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     DBHelper.MakeParam("@ConsultorioID", SqlDbType.Int, 0, codigoConsultorio),
-                    DBHelper.MakeParam("@FechaDeCita", SqlDbType.VarChar, 0, fechaCita)
+                    DBHelper.MakeParam("@FechaDeCita", SqlDbType.VarChar, 0, fechaCita),
+                    DBHelper.MakeParam("@MedicoID", SqlDbType.Int, 0, codigoMedico)
                 };
 
             return DBHelper.ExecuteDataReader("usp_CitaCola_ObtenerPacienteEnAtencion", dbParams);
         }
-        public static DataSet ObtenerDatosPacienteConsulta(int codigoConsultorio, string fechaCita)
+        public static DataSet ObtenerDatosPacienteConsulta(int codigoConsultorio, string fechaCita, int codigoMedico)
         {
             decimal cedulaPaciente =0;
-            SqlDataReader dr = ObtenerDatosPacienteEnAtencion(codigoConsultorio, fechaCita);
+
+            SqlDataReader dr = ObtenerDatosPacienteEnAtencion(codigoConsultorio, fechaCita, codigoMedico);
             if(dr.HasRows)
             {
                 while(dr.Read())
@@ -31,7 +33,8 @@ namespace Clinical
             }
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-                    DBHelper.MakeParam("@CedulaPaciente", SqlDbType.Decimal, 0, cedulaPaciente)
+                    DBHelper.MakeParam("@CedulaPaciente", SqlDbType.Decimal, 0, cedulaPaciente),
+                    DBHelper.MakeParam("@MedicoID", SqlDbType.Int, 0, codigoMedico)
                 };
 
             return DBHelper.ExecuteDataSet("usp_AtencionDoctor_ObtenerDatosPacienteConsulta", dbParams);
@@ -47,6 +50,17 @@ namespace Clinical
                     DBHelper.MakeParam("@EstatusCitaID", SqlDbType.Int, 0, objetoConsulta.EstatusCitaID)
             };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_AtencionDoctor_ActualizarConsulta", dbParams));
+        }
+        public static SqlDataReader ObtenerConsultaRegistrada(int cedulaPaciente, string fechaConsulta)
+        {
+
+            SqlParameter[] dbParams = new SqlParameter[]
+                {
+                    DBHelper.MakeParam("@CedulaPaciente", SqlDbType.Decimal, 0, cedulaPaciente),
+                    DBHelper.MakeParam("@FechaDeConsulta", SqlDbType.VarChar, 0, fechaConsulta)
+                };
+
+            return DBHelper.ExecuteDataReader("usp_AtencionDoctor_ObtenerConsultaRegistrada", dbParams);
         }
     }
 }

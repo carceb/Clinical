@@ -17,7 +17,7 @@ namespace Clinical
         }
         private void CargarDatosPaciente()
         {
-            DataSet ds = AtencionDoctor.ObtenerDatosPacienteConsulta(Convert.ToInt32(this.Session["CodigoEmpresa"].ToString()), DateTime.Now.ToString("dd/MM/yyyy"));
+            DataSet ds = AtencionDoctor.ObtenerDatosPacienteConsulta(Convert.ToInt32(this.Session["CodigoEmpresa"].ToString()), DateTime.Now.ToString("dd/MM/yyyy"), Convert.ToInt32(Session["MedicoID"]));
             DataTable dt = ds.Tables[0];
             if (dt.Rows.Count > 0)
             {
@@ -25,10 +25,24 @@ namespace Clinical
                 txtEdad.Text = dt.Rows[0]["Edad"].ToString();
                 txtCiudad.Text = dt.Rows[0]["NombreCiudad"].ToString();
                 txtAseguradora.Text = dt.Rows[0]["NombreAseguradora"].ToString();
-                txtPadecimiento.Text = dt.Rows[0]["MotivoConsulta"].ToString();
+                txtPadecimiento.Text = dt.Rows[0]["DescripcionPadecimiento"].ToString();
                 gridDetalle.DataSource = dt;
                 gridDetalle.DataBind();
             }
+            else
+            {
+                NuevoRegistro();
+            }
+        }
+        private void NuevoRegistro()
+        {
+            txtNombrePaciente.Text = "";
+            txtEdad.Text = "";
+            txtCiudad.Text = "";
+            txtAseguradora.Text = "";
+            txtPadecimiento.Text = "";
+            gridDetalle.DataSource = null;
+            gridDetalle.DataBind();
         }
         private void ProcesoActualizar()
         {
@@ -75,7 +89,7 @@ namespace Clinical
                     objetoConsulta.DescripcionTratamiento = Utils.utils.ToString(((TextBox)dr.FindControl("txtDescripcionTratamiento")).Text);
                     objetoConsulta.Medicamentos = Utils.utils.ToString(((TextBox)dr.FindControl("txtMedicamentos")).Text);
                     objetoConsulta.DescripcionEvolucionTratamiento = Utils.utils.ToString(((TextBox)dr.FindControl("txtEvolucion")).Text);
-                    objetoConsulta.EstatusCitaID = Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlEstatus")).SelectedValue);
+                    objetoConsulta.EstatusCitaID = 4;
                     if (objetoConsulta.EstatusCitaID == 0)
                         sResultado = "Estatus <br>";
                     objetoAsignarEstatus.Add(objetoConsulta);
@@ -104,6 +118,7 @@ namespace Clinical
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ProcesoActualizar();
+            CargarDatosPaciente();
         }
     }
 }

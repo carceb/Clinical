@@ -13,13 +13,13 @@ namespace Clinical {
     public partial class Paciente {
         
         /// <summary>
-        /// UCMessageBox1 control.
+        /// messageBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Teach.UCMessageBox UCMessageBox1;
+        protected global::Teach.UCMessageBox messageBox;
         
         /// <summary>
         /// principal control.

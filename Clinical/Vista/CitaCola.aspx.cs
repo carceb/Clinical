@@ -88,7 +88,6 @@ namespace Clinical
             }
         }
 
-
         private string ValidarDatos(ref List<CCita> objetoAsignarEstatus)
         {
             try

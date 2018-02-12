@@ -181,7 +181,7 @@
                                                 <asp:HiddenField runat ="server" ID ="hdnPacienteID"  Value="0"/>    
                                             </div>
                                             <div class="6u 12u$(xsmall)"> 
-                                                <asp:TextBox runat="server" ID="txtFechaNacimiento"  MaxLength="200"  placeholder ="Fecha de Nacimiento"/>
+                                                <asp:TextBox runat="server" ID="txtFechaNacimiento"  MaxLength="200"/>
                                                 <ASP:RequiredFieldValidator id="rqrValidaNacimiento" runat="server" errormessage="Debe colocar la fecha de nacimiento" width="132px" controltovalidate="txtFechaNacimiento" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
                                             </div>
                                             <div class="6u 12u$(xsmall)">
@@ -233,7 +233,6 @@
                                                     <li><asp:Button Text="Ciudad" runat="server" ID ="btnCiudad" Style="display: none" OnClick="btnCiudad_Click"/></li>
                                                 </ul>
                                             </div>
-                        
                                         </div>
                                 </section>
                            </form>

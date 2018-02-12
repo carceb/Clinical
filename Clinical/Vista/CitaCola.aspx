@@ -124,7 +124,7 @@
 															  </ItemTemplate>
 														<HeaderStyle Width="0px"></HeaderStyle>
 														  </asp:TemplateField>
-														  <asp:TemplateField HeaderText="Médico" HeaderStyle-Width="100    ">
+														  <asp:TemplateField HeaderText="Médico" HeaderStyle-Width="100">
 															  <ItemTemplate>
 																  <asp:Label runat="server" ID="lblMedico" Text='<%# Eval("NombreMedico") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusCitaID ").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
 															  </ItemTemplate>
@@ -144,11 +144,11 @@
 																  <asp:Label runat="server" ID="lblNombrePaciente" Text='<%# Eval("NombrePacienteCita") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusCitaID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
 															  </ItemTemplate>
 														  </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Estado" HeaderStyle-Width="100">
-                                                              <ItemTemplate>
-                                                                  <asp:LinkButton runat="server" ID="lnkEstadoHistoria" Text='<%# Eval("PacienteRegistrado") %>'  PostBackUrl ='<%# String.Format("Paciente.aspx?Cedula={0}&Nombre={1}",Eval("CedulaPacienteCita"),Eval("NombrePacienteCita")) %>' Font-Underline="true" ForeColor ="Purple" Font-Bold ="true" Visible = '<%# Eval("PacienteRegistrado").ToString() == "[PACIENTE SIN HISTORIA MEDICA]"?true:false %>'></asp:LinkButton>
-                                                              </ItemTemplate>
-                                                          </asp:TemplateField>
+														  <asp:TemplateField HeaderText="Estado" HeaderStyle-Width="100">
+															  <ItemTemplate>
+																  <asp:LinkButton runat="server" ID="lnkEstadoHistoria" Text='<%# Eval("PacienteRegistrado") %>'  PostBackUrl ='<%# String.Format("Paciente.aspx?Cedula={0}&Nombre={1}",Eval("CedulaPacienteCita"),Eval("NombrePacienteCita")) %>' Font-Underline="true" ForeColor ="Purple" Font-Bold ="true" Visible = '<%# Eval("PacienteRegistrado").ToString() == "[PACIENTE SIN HISTORIA MEDICA]"?true:false %>'></asp:LinkButton>
+															  </ItemTemplate>
+														  </asp:TemplateField>
 														  <asp:TemplateField HeaderText="Télefono" HeaderStyle-Width="150">
 															  <ItemTemplate>
 																  <asp:Label runat="server" ID="lblTelefono" Text='<%# Eval("CelularPacienteCita") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusCitaID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
@@ -166,7 +166,7 @@
 														  </asp:TemplateField>
 														   <asp:TemplateField HeaderText="MedicoConsultorioID" HeaderStyle-Width="0" Visible="false">
 															  <ItemTemplate>
-																  <asp:TextBox runat="server" ID="txtMedicoConsultorioID"  Text='<%# Eval("MedicoConsultorioID") %>'></asp:TextBox>
+																  <asp:TextBox runat="server" ID="txtMedicoConsultorioID"  Visible="false" Text='<%# Eval("MedicoConsultorioID") %>' ></asp:TextBox>
 															  </ItemTemplate>
 														  </asp:TemplateField>
 														 <asp:TemplateField HeaderText="Asignar Estatus" HeaderStyle-Width="150">

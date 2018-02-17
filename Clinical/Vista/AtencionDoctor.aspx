@@ -97,38 +97,14 @@
                                                 <asp:TextBox runat="server" ID="txtEdad"  placeholder ="Edad" />
                                             </div>
                                             <div class="6u 12u$(xsmall)">
-                                                <asp:TextBox runat="server" ID="txtCiudad" />                                            </div>
-                                            <div class="6u 12u$(xsmall)">
-                                                <asp:TextBox runat="server" ID="txtAseguradora" />
+                                                <asp:TextBox runat="server" ID="txtEstado" />  
                                             </div>
                                             <div class="6u 12u$(xsmall)">
-                                                <asp:TextBox runat="server" ID="txtPadecimiento" />
-                                            </div>
-                                            <div class="6u 12u$(xsmall)">
-                                                 <div class="select-wrapper">
-                                                    <asp:DropDownList ID="ddlCiudad" runat="server" AppendDataBoundItems="true" onchange="CargarCiudaddes();">
-                                                        <asp:ListItem Text="Seleccione la ciudad" Value="0"></asp:ListItem>
-                                                    </asp:DropDownList>
-                                                  <asp:HiddenField runat ="server" ID ="hdnCodigoCiudad"  Value="0"/>  
-                                                </div>
+                                                <asp:TextBox runat="server" ID="txtCiudad" />
                                             </div>
                                             <div class="6u 12u$(xsmall)">
                                                 <asp:TextBox runat="server" ID="txtDireccion"  TextMode="MultiLine" Rows="2"  onkeypress="return event.keyCode!=13;" placeholder ="Dirección del Paciente"/>
-                                                <ASP:RequiredFieldValidator id="rqrValidaDireccion" runat="server" errormessage="Debe colocar la dirección" width="132px" controltovalidate="txtDireccion" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
                                             </div>
-                                            <div class="6u 12u$(xsmall)">
-                                                <div class="select-wrapper">
-                                                    <asp:DropDownList ID="ddlAseguradora" runat="server"  AppendDataBoundItems="True" >
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                            <div class="6u 12u$(xsmall)">
-                                                <div class="select-wrapper">
-                                                    <asp:DropDownList ID="ddlTipoSangre" runat="server"   AppendDataBoundItems="True" >
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-
                                             <div class="12u$">
                                                 <ul class="actions">
                                                   <asp:Button Text="Actualizar" runat="server" ID ="btnGuardar"   OnClick="btnGuardar_Click"/>
@@ -137,11 +113,11 @@
                                                 </ul>
                                             </div>
                                             <div class="table-wrapper">
-                                                  <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 
+                                                  <asp:GridView ID="gridDetalle" runat="server"  EmptyDataText="No existen Registros" 
                                                       GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand"  >
-                                                        <HeaderStyle CssClass ="registroTitulo" Font-Size="10px" />
-                                                        <AlternatingRowStyle CssClass ="registroNormal" Font-Size="10px" />
-                                                          <RowStyle CssClass ="registroAlternado" Font-Size="10px" />
+                                                        <HeaderStyle  Font-Size="10px" />
+                                                        <AlternatingRowStyle  Font-Size="10px" />
+                                                          <RowStyle  Font-Size="10px" />
                                                       <Columns>
                                                           <asp:TemplateField HeaderText="CodV" HeaderStyle-Width="0" Visible="false">
                                                               <ItemTemplate>
@@ -149,44 +125,44 @@
                                                               </ItemTemplate>
                                                         <HeaderStyle Width="0px"></HeaderStyle>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Fecha" HeaderStyle-Width="100 ">
+                                                          <asp:TemplateField HeaderText="Fecha">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblFechaConsulta" Text='<%# Eval("FechaDeConsulta") %>' ></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Motivo Consulta" HeaderStyle-Width="80">
+                                                          <asp:TemplateField HeaderText="Motivo Consulta">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblMotivo" Text='<%# Eval("MotivoConsulta") %>' ></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Doctor" HeaderStyle-Width="80">
+                                                           <asp:TemplateField HeaderText="Doctor">
                                                               <ItemTemplate>
                                                                   <asp:Label runat="server" ID="lblDoctor" Text='<%# Eval("NombreMedico") %>' ></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Tratamiento" HeaderStyle-Width="80">
+                                                          <asp:TemplateField HeaderText="Tratamiento">
                                                               <ItemTemplate>
                                                                   <asp:TextBox runat="server" ID="txtDescripcionTratamiento" TextMode="MultiLine" Rows ="4"  Text='<%# Eval("DescripcionTratamiento") %>'  Enabled = '<%# Eval("EstatusCitaID ").ToString() == "4"?false:true %>' ></asp:TextBox>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                          <asp:TemplateField HeaderText="Medicamentos" HeaderStyle-Width="80">
+                                                          <asp:TemplateField HeaderText="Medicamentos">
                                                               <ItemTemplate>
                                                                   <asp:TextBox runat="server" ID="txtMedicamentos" TextMode="MultiLine" Rows ="4" Text='<%# Eval("Medicamentos") %>' Enabled = '<%# Eval("EstatusCitaID ").ToString() == "4"?false:true %>'></asp:TextBox>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                           <asp:TemplateField HeaderText="Evolución" HeaderStyle-Width="80">
+                                                           <asp:TemplateField HeaderText="Evolución">
                                                               <ItemTemplate>
                                                                   <asp:TextBox runat="server" ID="txtEvolucion" TextMode="MultiLine" Rows ="4"  Text='<%# Eval("DescripcionEvolucionTratamiento") %>' Enabled = '<%# Eval("EstatusCitaID ").ToString() == "4"?false:true %>' ></asp:TextBox>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Estatus" HeaderStyle-Width="80">
+                                                         <asp:TemplateField HeaderText="Estatus">
                                                               <ItemTemplate>
                                                                   <asp:DropDownList runat="server" ID="ddlEstatus"
                                                                         DataSourceID="SqlDataSource4" 
                                                                         DataTextField ="NombreEstatusCita"
                                                                         DataValueField ="EstatusCitaID"
                                                                         SelectedValue ='<%# Bind("EstatusCitaID") %>'
-                                                                        Width="80"
+                                                                        
                                                                         Enabled = '<%# Eval("EstatusCitaID ").ToString() == "4"?false:true %>'>
                                                                   </asp:DropDownList>
                                                                 <asp:SqlDataSource 

@@ -78,6 +78,8 @@
     <Content Include="citasassets\js\skel.min.js" />
     <Content Include="citasassets\js\util.js" />
     <Content Include="images\avatar.png" />
+    <Content Include="images\CentroMedico.jpg" />
+    <Content Include="images\seleccionar.png" />
     <Content Include="loginassets\css\font-awesome.min.css" />
     <Content Include="loginassets\css\ie8.css" />
     <Content Include="loginassets\css\ie9.css" />

@@ -10,22 +10,22 @@ namespace Clinical
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 CargarDatosPaciente();
             }
         }
         private void CargarDatosPaciente()
         {
-            DataSet ds = AtencionDoctor.ObtenerDatosPacienteConsulta(Convert.ToInt32(this.Session["CodigoEmpresa"].ToString()), DateTime.Now.ToString("dd/MM/yyyy"), Convert.ToInt32(Session["MedicoID"]));
+            DataSet ds = AtencionDoctor.ObtenerDatosPacienteConsulta(Convert.ToInt32(this.Session["CodigoSucursalEmpresa"].ToString()), DateTime.Now.ToString("dd/MM/yyyy"), Convert.ToInt32(Session["MedicoID"]));
             DataTable dt = ds.Tables[0];
             if (dt.Rows.Count > 0)
             {
                 txtNombrePaciente.Text = dt.Rows[0]["NombrePaciente"].ToString();
                 txtEdad.Text = dt.Rows[0]["Edad"].ToString();
+                txtEstado.Text = dt.Rows[0]["NombreEstado"].ToString();
                 txtCiudad.Text = dt.Rows[0]["NombreCiudad"].ToString();
-                txtAseguradora.Text = dt.Rows[0]["NombreAseguradora"].ToString();
-                txtPadecimiento.Text = dt.Rows[0]["DescripcionPadecimiento"].ToString();
+                txtDireccion.Text = dt.Rows[0]["DireccionPaciente"].ToString();
                 gridDetalle.DataSource = dt;
                 gridDetalle.DataBind();
             }
@@ -39,8 +39,6 @@ namespace Clinical
             txtNombrePaciente.Text = "";
             txtEdad.Text = "";
             txtCiudad.Text = "";
-            txtAseguradora.Text = "";
-            txtPadecimiento.Text = "";
             gridDetalle.DataSource = null;
             gridDetalle.DataBind();
         }
@@ -54,13 +52,14 @@ namespace Clinical
                 foreach (CConsulta prod in objetoLista)
                 {
                     contadorRegistros = contadorRegistros + 1;
-                    AtencionDoctor.ActuaizarConsulta(prod);
+                    AtencionDoctor.ActualizarConsulta(prod, Convert.ToInt32(Session["CitaID"]));
                     CargarDatosPaciente();
 
                 }
                 if (contadorRegistros > 0)
                 {
-                    messageBox.ShowMessage("Lista actualizada.");
+                    messageBox.ShowMessage("Consulta actualizada.");
+                    Response.Redirect("AtencionDoctorSeleccion.aspx");
                 }
                 else
                 {

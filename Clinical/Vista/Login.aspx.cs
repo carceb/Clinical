@@ -41,6 +41,7 @@ namespace Seguridad
                         this.Session["UserName"] = dt.Rows[0]["LoginUsuario"].ToString();
                         this.Session["NombreCompletoUsuario"] = dt.Rows[0]["NombreCompleto"].ToString();
                         this.Session["ClaveUsuario"] = dt.Rows[0]["ClaveUsuario"].ToString();
+                        this.Session["CodigoUsuario"] = dt.Rows[0]["SeguridadUsuarioDatosID"].ToString();
                         hdnCodigoUsuario.Value = dt.Rows[0]["SeguridadUsuarioDatosID"].ToString();
                         CargarEmpresa(Convert.ToInt32(dt.Rows[0]["SeguridadUsuarioDatosID"].ToString()));
                     }

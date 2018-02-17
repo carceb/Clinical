@@ -49,6 +49,15 @@ namespace Clinical {
         protected global::System.Web.UI.WebControls.TextBox txtEdad;
         
         /// <summary>
+        /// txtEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEstado;
+        
+        /// <summary>
         /// txtCiudad control.
         /// </summary>
         /// <remarks>
@@ -58,42 +67,6 @@ namespace Clinical {
         protected global::System.Web.UI.WebControls.TextBox txtCiudad;
         
         /// <summary>
-        /// txtAseguradora control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAseguradora;
-        
-        /// <summary>
-        /// txtPadecimiento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPadecimiento;
-        
-        /// <summary>
-        /// ddlCiudad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCiudad;
-        
-        /// <summary>
-        /// hdnCodigoCiudad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnCodigoCiudad;
-        
-        /// <summary>
         /// txtDireccion control.
         /// </summary>
         /// <remarks>
@@ -101,33 +74,6 @@ namespace Clinical {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
-        
-        /// <summary>
-        /// rqrValidaDireccion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqrValidaDireccion;
-        
-        /// <summary>
-        /// ddlAseguradora control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAseguradora;
-        
-        /// <summary>
-        /// ddlTipoSangre control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoSangre;
         
         /// <summary>
         /// btnGuardar control.

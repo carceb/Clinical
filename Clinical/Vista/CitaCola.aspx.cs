@@ -14,6 +14,7 @@ namespace Clinical
         {
             if(!IsPostBack)
             {
+                hdnConsultorioID.Value = this.Session["CodigoSucursalEmpresa"].ToString();
                 txtFechaCita.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 CargarCitas();
             }
@@ -60,38 +61,45 @@ namespace Clinical
         }
         private void ProcesoActualizar()
         {
-            try
-            {
-                int contadorRegistros = 0;
-                List<CCita> objetoLista = new List<CCita>();
-                string sResultado = ValidarDatos(ref objetoLista);
-                foreach (CCita prod in objetoLista)
+            //if(EsHistoriaValida() == true)
+            //{
+                try
                 {
-                    contadorRegistros = contadorRegistros + 1;
-                    CitaCola.ActuaizarEstatusCita(prod);
-                    CargarCitas();
+                    int contadorRegistros = 0;
+                    List<CCita> objetoLista = new List<CCita>();
+                    string sResultado = ValidarDatos(ref objetoLista);
+                    foreach (CCita prod in objetoLista)
+                    {
+                        contadorRegistros = contadorRegistros + 1;
+                        CitaCola.ActuaizarEstatusCita(prod);
+                        CargarCitas();
+
+                    }
+                    if (contadorRegistros > 0)
+                    {
+                        messageBox.ShowMessage("Lista actualizada.");
+                    }
+                    else
+                    {
+                        messageBox.ShowMessage(sResultado);
+                    }
 
                 }
-                if (contadorRegistros > 0)
+                catch (Exception ex)
                 {
-                    messageBox.ShowMessage("Lista actualizada.");
+                    messageBox.ShowMessage(ex.Message + ex.StackTrace);
                 }
-                else
-                {
-                    messageBox.ShowMessage("No existen registros por actualizar");
-                }
+            //}
 
-            }
-            catch (Exception ex)
-            {
-                messageBox.ShowMessage(ex.Message + ex.StackTrace);
-            }
         }
 
         private string ValidarDatos(ref List<CCita> objetoAsignarEstatus)
         {
             try
             {
+                int totalEnAtencion = 0;
+                string nombreMedico = "";
+                string estatusPaciente = "";
                 string sResultado = "";
                 CCita objetoAsignaEstatus = null;
                 int j = 1;
@@ -101,7 +109,45 @@ namespace Clinical
                     objetoAsignaEstatus.EstatusCitaID = Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlEstatus")).SelectedValue);
                     objetoAsignaEstatus.CitaID = Utils.utils.ToInt(((TextBox)dr.FindControl("txtCitaID")).Text);
                     objetoAsignaEstatus.DescripcionPadecimiento = Utils.utils.ToString(((TextBox)dr.FindControl("txtDescripcionPadecimiento")).Text);
-                    objetoAsignaEstatus.MedicoConsultorioID = Utils.utils.ToInt(((TextBox)dr.FindControl("txtMedicoConsultorioID")).Text);
+                    objetoAsignaEstatus.FechaCita = txtFechaCita.Text.ToString();
+                    objetoAsignaEstatus.CedulaPacienteCita = Utils.utils.ToString(((Label)dr.FindControl("lblCedula")).Text);
+                    objetoAsignaEstatus.MedicoConsultorioID = Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlMedico")).SelectedValue);
+                    estatusPaciente = Utils.utils.ToString(((LinkButton)dr.FindControl("lnkEstadoHistoria")).Text);
+                    if (objetoAsignaEstatus.EstatusCitaID == 3)
+                    {
+                        if (estatusPaciente == "[PACIENTE SIN HISTORIA MEDICA]")
+                        {
+                            sResultado = "No puede enviar a atención a un paciente sin historia médica.";
+                            objetoAsignarEstatus.Clear();
+                            break;
+                        }
+                        else
+                        {
+                            dr.FindControl("lnkEstadoHistoria").Visible = false;
+                        }
+                    }
+                    if (estatusPaciente != "[PACIENTE SIN HISTORIA MEDICA]")
+                    {
+                        dr.FindControl("lnkEstadoHistoria").Visible = false;
+                    }
+                    if (objetoAsignaEstatus.EstatusCitaID == 3)
+                    {
+                        if (nombreMedico == "")
+                        {
+                            nombreMedico = Utils.utils.ToString(((DropDownList)dr.FindControl("ddlMedico")).SelectedItem);
+                        }
+
+                        totalEnAtencion += 1;
+                    }
+                    if (totalEnAtencion > 1)
+                    {
+                        var x = Utils.utils.ToString(((DropDownList)dr.FindControl("ddlMedico")).SelectedItem);
+                        if (nombreMedico == Utils.utils.ToString(((DropDownList)dr.FindControl("ddlMedico")).SelectedItem))
+                        {
+                            sResultado = "Solo puede enviar a la atención médica a un paciente a la vez.";
+                            return sResultado;
+                        }
+                    }
                     if (objetoAsignaEstatus.EstatusCitaID == 0)
                         sResultado = "Estatus <br>";
                     objetoAsignarEstatus.Add(objetoAsignaEstatus);
@@ -120,6 +166,38 @@ namespace Clinical
             {
                 messageBox.ShowMessage(ex.Message + ex.StackTrace);
                 return "";
+            }
+        }
+        private bool EsHistoriaValida()
+        {
+            try
+            {
+                bool resultado = true;
+                int j = 1;
+                foreach (GridViewRow dr in this.gridDetalle.Rows)
+                {
+                    string indicaHistoria;
+                    int estatusCita;
+                    estatusCita = Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlEstatus")).SelectedValue);
+                    indicaHistoria = Utils.utils.ToString(((TextBox)dr.FindControl("txtPacienteRegistrado")).Text);
+                    if (estatusCita == 3 || estatusCita == 4)
+                    {
+                        if (indicaHistoria == "[PACIENTE SIN HISTORIA MEDICA]")
+                        {
+                            resultado = false;
+                            messageBox.ShowMessage("No puede enviar a consulta a un paciente sin historia medica");
+                            break;
+                        }
+                    }
+                    j++;
+                }
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                messageBox.ShowMessage(ex.Message + ex.StackTrace);
+                return false;
             }
         }
 

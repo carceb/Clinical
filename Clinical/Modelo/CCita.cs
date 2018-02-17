@@ -19,7 +19,6 @@ namespace Clinical
             this._estatusCitaID = _estatusCitaID;
             this._citaMotivoID = _citaMotivoID;
             this._citaID = _citaID;
-
         }
 
         private int _medicoConsultorioID;
@@ -32,6 +31,7 @@ namespace Clinical
         private int _citaMotivoID;
         private int _citaID;
         private string _descripcionPadecimiento;
+
         public int MedicoConsultorioID
         {
             get

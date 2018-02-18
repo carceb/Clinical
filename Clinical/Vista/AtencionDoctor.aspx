@@ -108,7 +108,6 @@
                                             <div class="12u$">
                                                 <ul class="actions">
                                                   <asp:Button Text="Actualizar" runat="server" ID ="btnGuardar"   OnClick="btnGuardar_Click"/>
-                                                  <asp:Button Text="Nuevo registro" runat="server" ID ="btnNuevo" />
 
                                                 </ul>
                                             </div>

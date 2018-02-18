@@ -76,6 +76,15 @@ namespace Clinical {
         protected global::System.Web.UI.WebControls.HiddenField hdnMedicoConsultorioID;
         
         /// <summary>
+        /// hdnMedicoID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnMedicoID;
+        
+        /// <summary>
         /// rqrValidaConsultorio control.
         /// </summary>
         /// <remarks>

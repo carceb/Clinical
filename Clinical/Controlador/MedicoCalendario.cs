@@ -23,11 +23,11 @@ namespace Clinical
             };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_MedicoCalendario_InsertarMedicoCalendario", dbParams));
         }
-        public static DataSet ObtenerMedicoCalendario(int consultorioID)
+        public static DataSet ObtenerMedicoCalendario(int medicoID)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-                    DBHelper.MakeParam("@ConsultorioID", SqlDbType.Int, 0, consultorioID),
+                    DBHelper.MakeParam("@MedicoID", SqlDbType.Int, 0, medicoID),
                 };
 
             return DBHelper.ExecuteDataSet("usp_MedicoCalendario_ObtenerCalendario", dbParams);

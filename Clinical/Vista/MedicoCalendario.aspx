@@ -59,6 +59,7 @@ BODY {
             document.getElementById("hdnConsultorioID").value = par[0];
             document.getElementById("hdnMedicoConsultorioID").value = par[3];
             document.getElementById("txtNombreConsultorio").value = par[1];
+            document.getElementById("hdnMedicoID").value = par[9];
             var bt = document.getElementById("btnTest");
             bt.click();
         }
@@ -93,7 +94,8 @@ BODY {
                     <td class="auto-style2">
                         <asp:TextBox runat="server" ID="txtNombreConsultorio" onkeypress="return event.keyCode!=13;" MaxLength="300" Width="520"/>
                         <asp:HiddenField runat ="server" ID ="hdnConsultorioID"  Value="0"/>
-                        <asp:HiddenField runat ="server" ID ="hdnMedicoConsultorioID"  Value="0"/>    
+                        <asp:HiddenField runat ="server" ID ="hdnMedicoConsultorioID"  Value="0"/>
+                        <asp:HiddenField runat ="server" ID ="hdnMedicoID"  Value="0"/>        
                         <ASP:RequiredFieldValidator id="rqrValidaConsultorio" runat="server" errormessage="Debe colocar el nombre del consultorio" width="132px" controltovalidate="txtNombreConsultorio" display="Dynamic" ForeColor ="Red"></ASP:RequiredFieldValidator>
                       </td>
                 </tr>

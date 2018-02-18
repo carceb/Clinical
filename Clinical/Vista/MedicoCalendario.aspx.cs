@@ -124,8 +124,8 @@ namespace Clinical
             try
             {
 
-                int codigoConsultorio = Convert.ToInt32(hdnConsultorioID.Value);
-                DataSet ds = MedicoCalendario.ObtenerMedicoCalendario(codigoConsultorio);
+                int codigoMedico = Convert.ToInt32(hdnMedicoID.Value);
+                DataSet ds = MedicoCalendario.ObtenerMedicoCalendario(codigoMedico);
                 DataTable dt = ds.Tables[0];
                 gridDetalle.DataSource = dt;
                 gridDetalle.DataBind();

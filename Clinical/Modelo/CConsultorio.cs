@@ -12,7 +12,7 @@ namespace Clinical
 
         }
 
-        public CConsultorio(int _consultorioID, string _nombreConsultorio, string _rif, int _ciudadID, string _telefonoConsultorio, string _emailConsultorio, string _direccionConsultorio)
+        public CConsultorio(int _consultorioID, string _nombreConsultorio, string _rif, int _ciudadID, string _telefonoConsultorio, string _emailConsultorio, string _direccionConsultorio, int _empresaID)
         {
             this._consultorioID = _consultorioID;
             this._nombreConsultorio = _nombreConsultorio;
@@ -21,6 +21,7 @@ namespace Clinical
             this._telefonoConsultorio = _telefonoConsultorio;
             this._emailConsultorio = _emailConsultorio;
             this._direccionConsultorio = _direccionConsultorio;
+            this._empresaID = _empresaID;
         }
 
         private int _consultorioID;
@@ -30,6 +31,7 @@ namespace Clinical
         private int _ciudadID;
         private string _telefonoConsultorio;
         private string _emailConsultorio;
+        private int _empresaID;
 
         public int ConsultorioID
         {
@@ -118,6 +120,18 @@ namespace Clinical
             set
             {
                 _direccionConsultorio = value;
+            }
+        }
+        public int EmpresaID
+        {
+            get
+            {
+                return _empresaID;
+            }
+
+            set
+            {
+                _empresaID = value;
             }
         }
     }

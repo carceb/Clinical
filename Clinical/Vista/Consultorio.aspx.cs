@@ -18,6 +18,7 @@ namespace Clinical
             {
                 txtNombreConsultorio.Focus();
                 CargarEstado();
+                CargarEmpresa();
             }
         }
 
@@ -41,6 +42,30 @@ namespace Clinical
                     ddlEstado.DataTextField = "NombreEstado";
                     ddlEstado.DataValueField = "EstadoID";
                     ddlEstado.DataBind();
+                    con.Close();
+                }
+            }
+        }
+        private void CargarEmpresa()
+        {
+            String strConnString = ConfigurationManager
+            .ConnectionStrings["CallCenterConnectionString"].ConnectionString;
+            String strQuery = "";
+
+            strQuery = "select * From Empresa ORDER BY NombreEmpresa";
+
+            using (SqlConnection con = new SqlConnection(strConnString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = strQuery;
+                    cmd.Connection = con;
+                    con.Open();
+                    ddlEmpresa.DataSource = cmd.ExecuteReader();
+                    ddlEmpresa.DataTextField = "NombreEmpresa";
+                    ddlEmpresa.DataValueField = "EmpresaID";
+                    ddlEmpresa.DataBind();
                     con.Close();
                 }
             }
@@ -96,8 +121,9 @@ namespace Clinical
                 objetoConsultorio.CiudadID = Convert.ToInt32(ddlCiudad.SelectedItem.Value);
                 objetoConsultorio.TelefonoConsultorio = txtTelefonos.Text;
                 objetoConsultorio.EmailConsultorio = txtEmail.Text;
+                objetoConsultorio.EmpresaID = Convert.ToInt32(ddlEmpresa.SelectedItem.Value);
 
-                if(Convert.ToInt32(hdnConsultorioID.Value) == 0)
+                if (Convert.ToInt32(hdnConsultorioID.Value) == 0)
                 {
                     if (Consultorio.InsertarConsultorio(objetoConsultorio) > 0)
                     {

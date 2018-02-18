@@ -66,13 +66,7 @@
                                             <div class="12u$">
                                                 <ul class="actions">
                                                     <li>
-                                                         <asp:DropDownList ID="ddlDoctor" runat="server" Width="300" ></asp:DropDownList>
-                                                    </li>
-                                                    <li>
-                                                        <asp:Button Text="Entrar" runat="server" ID ="btnEntrar"  CssClass ="boton_formulario" OnClick="btnEntrar_Click"/>
-                                                    </li>
-                                                    <li>
-                                                        <asp:Button Text="Buscar" runat="server" ID ="btnBuscar"  CssClass ="boton_formulario" OnClick="btnBuscar_Click"/>
+                                                         <asp:DropDownList ID="ddlDoctor" runat="server" Width="300" OnSelectedIndexChanged="ddlDoctor_SelectedIndexChanged" ></asp:DropDownList>
                                                     </li>
                                                 </ul>
 
@@ -94,9 +88,14 @@
                                                               </ItemTemplate>
                                                         <HeaderStyle Width="0px"></HeaderStyle>
                                                           </asp:TemplateField>
+                                                          <asp:TemplateField HeaderText="Estatus Cita">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblEstatusCita" Text='<%# Eval("NombreEstatusCita") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusCitaID").ToString() == "3"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Paciente">
                                                               <ItemTemplate>
-                                                                  <asp:Label runat="server" ID="lblNombrePaciente" Text='<%# Eval("NombrePacienteCita") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusCitaID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
+                                                                  <asp:Label runat="server" ID="lblNombrePaciente" Text='<%# Eval("NombrePacienteCita") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusCitaID").ToString() == "3"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Motivo Cita">
@@ -117,8 +116,8 @@
 
                                                            <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="150px">
                                                               <ItemTemplate>
-                                                                  <asp:ImageButton runat="server" ID="btnSeleccionar" AlternateText="Seleccionar Detalle" CausesValidation="false" ToolTip="Seleccionar Paciente"  ImageUrl="~/images/seleccionar.png"  CommandName="SeleccionarDetalle" CommandArgument='<%# Eval("CitaID") %>'/>
-                                                                  <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Cita"  ImageUrl="~/images/eliminar.gif"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("CitaID") %>'/>
+                                                                  <asp:ImageButton runat="server" ID="btnSeleccionar" AlternateText="Seleccionar Detalle" CausesValidation="false" ToolTip="Seleccionar Paciente"  ImageUrl="~/images/seleccionar.png"  CommandName="SeleccionarDetalle" CommandArgument='<%# Eval("CitaID") %>' Visible  = '<%# Eval("EstatusCitaID").ToString() == "3"?true:false %>'/>
+                                                                  <%--<asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" CausesValidation="false" OnClientClick="return Confirmacion();" ToolTip="Eliminar Cita"  ImageUrl="~/images/eliminar.gif"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("CitaID") %>'/>--%>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                       </Columns>

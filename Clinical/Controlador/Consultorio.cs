@@ -16,7 +16,8 @@ namespace Clinical
                     DBHelper.MakeParam("@DireccionConsultorio", SqlDbType.VarChar, 0, objetoConsultorio.DireccionConsultorio),
                     DBHelper.MakeParam("@CiudadID", SqlDbType.Int, 0, objetoConsultorio.CiudadID),
                     DBHelper.MakeParam("@TelefonoConsultorio", SqlDbType.VarChar, 0, objetoConsultorio.TelefonoConsultorio),
-                    DBHelper.MakeParam("@EmailConsultorio", SqlDbType.VarChar, 0, objetoConsultorio.EmailConsultorio)
+                    DBHelper.MakeParam("@EmailConsultorio", SqlDbType.VarChar, 0, objetoConsultorio.EmailConsultorio),
+                    DBHelper.MakeParam("@EmpresaID", SqlDbType.Int, 0, objetoConsultorio.EmpresaID)
 
             };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Consultorio_InsertarConsultorio", dbParams));
@@ -31,10 +32,12 @@ namespace Clinical
                     DBHelper.MakeParam("@DireccionConsultorio", SqlDbType.VarChar, 0, objetoConsultorio.DireccionConsultorio),
                     DBHelper.MakeParam("@CiudadID", SqlDbType.Int, 0, objetoConsultorio.CiudadID),
                     DBHelper.MakeParam("@TelefonoConsultorio", SqlDbType.VarChar, 0, objetoConsultorio.TelefonoConsultorio),
-                    DBHelper.MakeParam("@EmailConsultorio", SqlDbType.VarChar, 0, objetoConsultorio.EmailConsultorio)
+                    DBHelper.MakeParam("@EmailConsultorio", SqlDbType.VarChar, 0, objetoConsultorio.EmailConsultorio),
+                    DBHelper.MakeParam("@EmpresaID", SqlDbType.Int, 0, objetoConsultorio.EmpresaID)
 
             };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Consultorio_ActualizarConsultorio", dbParams));
         }
+
     }
 }

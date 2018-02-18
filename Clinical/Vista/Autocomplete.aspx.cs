@@ -63,7 +63,7 @@ namespace Admin
                             item.value = dr["NombreConsultorio"].ToString();
                             item.id = dr["ConsultorioID"].ToString();
                             item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreConsultorio"].ToString() + "_" + dr["ConsultorioID"].ToString() + "_" + dr["RIFConsultorio"].ToString() + "_" + dr["DireccionConsultorio"].ToString() + "_" + dr["TelefonoConsultorio"].ToString() + "_" + dr["EmailConsultorio"].ToString() + "_" + dr["EstadoID"].ToString() + "_" + dr["CiudadID"].ToString() + "'>" + item.value + "</li>" + "\n");
+                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreConsultorio"].ToString() + "_" + dr["ConsultorioID"].ToString() + "_" + dr["RIFConsultorio"].ToString() + "_" + dr["DireccionConsultorio"].ToString() + "_" + dr["TelefonoConsultorio"].ToString() + "_" + dr["EmailConsultorio"].ToString() + "_" + dr["EstadoID"].ToString() + "_" + dr["CiudadID"].ToString() + "_" + dr["EmpresaID"].ToString() + "'>"  + item.value + "</li>" + "\n");
                         }
                         Response.Write("</ul>");
                         Response.End();

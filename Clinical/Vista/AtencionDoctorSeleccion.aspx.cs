@@ -82,17 +82,6 @@ namespace Clinical
                 messageBox.ShowMessage(ex.Message + ex.StackTrace);
             }
         }
-        protected void btnEntrar_Click(object sender, EventArgs e)
-        {
-            this.Session["MedicoID"] = ddlDoctor.SelectedValue.ToString();
-            Response.Redirect("AtencionDoctor.aspx");
-        }
-
-        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-            CargarCitas();
-        }
-
         protected void gridDetalle_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
@@ -123,6 +112,11 @@ namespace Clinical
             {
                 messageBox.ShowMessage(ex.Message + ex.StackTrace);
             }
+        }
+
+        protected void ddlDoctor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarCitas();
         }
     }
 }

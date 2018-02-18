@@ -9,6 +9,7 @@ namespace Clinical
     {
         public static int InsertarMedico(CMedicos objetoMedico)
         {
+            int resultado = 0;
             SqlParameter[] dbParams = new SqlParameter[]
             {
                     DBHelper.MakeParam("@SexoMedico", SqlDbType.VarChar, 0, objetoMedico.SexoMedico),
@@ -23,10 +24,12 @@ namespace Clinical
                     DBHelper.MakeParam("@EmailMedico", SqlDbType.VarChar, 0, objetoMedico.EmailMedico)
 
             };
-            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Medicos_InsertarMedico", dbParams));
+            resultado = Convert.ToInt32(DBHelper.ExecuteScalar("usp_Medicos_InsertarMedico", dbParams));
+            return resultado;
         }
         public static int ActualizarMedico(CMedicos objetoMedico)
         {
+            int resultado = 0;
             SqlParameter[] dbParams = new SqlParameter[]
             {
                     DBHelper.MakeParam("@MedicoID", SqlDbType.Int, 0, objetoMedico.MedicoID),
@@ -42,7 +45,10 @@ namespace Clinical
                     DBHelper.MakeParam("@EmailMedico", SqlDbType.VarChar, 0, objetoMedico.EmailMedico)
 
             };
-            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Medicos_ActualizarMedico", dbParams));
+
+            resultado = Convert.ToInt32(DBHelper.ExecuteScalar("usp_Medicos_ActualizarMedico", dbParams));
+            return resultado;
+
         }
     }
 }

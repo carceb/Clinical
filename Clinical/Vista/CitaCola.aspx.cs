@@ -61,8 +61,6 @@ namespace Clinical
         }
         private void ProcesoActualizar()
         {
-            //if(EsHistoriaValida() == true)
-            //{
                 try
                 {
                     int contadorRegistros = 0;
@@ -89,8 +87,6 @@ namespace Clinical
                 {
                     messageBox.ShowMessage(ex.Message + ex.StackTrace);
                 }
-            //}
-
         }
 
         private string ValidarDatos(ref List<CCita> objetoAsignarEstatus)
@@ -168,39 +164,6 @@ namespace Clinical
                 return "";
             }
         }
-        private bool EsHistoriaValida()
-        {
-            try
-            {
-                bool resultado = true;
-                int j = 1;
-                foreach (GridViewRow dr in this.gridDetalle.Rows)
-                {
-                    string indicaHistoria;
-                    int estatusCita;
-                    estatusCita = Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlEstatus")).SelectedValue);
-                    indicaHistoria = Utils.utils.ToString(((TextBox)dr.FindControl("txtPacienteRegistrado")).Text);
-                    if (estatusCita == 3 || estatusCita == 4)
-                    {
-                        if (indicaHistoria == "[PACIENTE SIN HISTORIA MEDICA]")
-                        {
-                            resultado = false;
-                            messageBox.ShowMessage("No puede enviar a consulta a un paciente sin historia medica");
-                            break;
-                        }
-                    }
-                    j++;
-                }
-
-                return resultado;
-            }
-            catch (Exception ex)
-            {
-                messageBox.ShowMessage(ex.Message + ex.StackTrace);
-                return false;
-            }
-        }
-
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             CargarCitas();

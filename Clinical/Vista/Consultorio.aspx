@@ -125,7 +125,7 @@
                                             <div class="12u$">
                                                 <ul class="actions">
                                                     <li><asp:Button Text="Actualizar" runat="server" ID ="btnGuardar" CssClass ="special" OnClick="btnGuardar_Click"/></li>
-                                                    <li><asp:Button Text="Nuevo registro" runat="server" ID ="btnNuevo" CssClass ="boton_formulario" CausesValidation="False" OnClick="btnNuevo_Click"/></li>
+                                                    <li><asp:Button Text="Nuevo registro" runat="server" ID ="btnNuevo" CausesValidation="False" OnClick="btnNuevo_Click"/></li>
                                                     <li><asp:Button Text="TEST" runat="server" ID ="btnTest" style="display:none" CssClass ="boton_formulario" OnClick="btnTest_Click" CausesValidation="False"/></li>
                                                 </ul>
                                             </div>

@@ -43,13 +43,15 @@ namespace Admin
             return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerMedicoConsultorios", dbParams);
         }
 
-        public static DataSet ObtenerUsuarios(string sQuery)
+        //SEGURIDAD ***************************************************
+        public static DataSet ObtenerUsuarios(string sQuery, int codigoSucursal)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
                     DBHelper.MakeParam("@Query", SqlDbType.VarChar, 0, sQuery),
+                    DBHelper.MakeParam("@EmpresaSucursalID", SqlDbType.Int, 0, codigoSucursal)
                 };
-                return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerUsuarios", dbParams);
+            return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerUsuarios", dbParams);
         }
         public static DataSet ObtenerGrupos(string sQuery)
         {
@@ -67,5 +69,6 @@ namespace Admin
                 };
             return DBHelper.ExecuteDataSet("usp_Autocomplete_ObtenerObjetos", dbParams);
         }
+        // *****************************************************************
     }
 }

@@ -90,7 +90,7 @@ namespace Admin
                 }
                 if (Request.QueryString["identifier"] == "Usuarios")
                 {
-                    DataSet ds = Autocomplete.ObtenerUsuarios(Request.QueryString["query"]);
+                    DataSet ds = Autocomplete.ObtenerUsuarios(Request.QueryString["query"], Convert.ToInt32(Session["CodigoSucursalEmpresa"]));
                     if (ds.Tables[0].Rows.Count > 0)
                     {
                         Response.Write("<ul>" + "\n");
@@ -101,7 +101,7 @@ namespace Admin
                             item.value = dr["NombreCompleto"].ToString();
                             item.id = dr["SeguridadUsuarioDatosID"].ToString();
                             item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreCompleto"].ToString() + "_" + dr["LoginUsuario"].ToString() + "_" + dr["ClaveUsuario"].ToString() + "_" + dr["DescripcionUsuario"].ToString() + "_" + dr["SeguridadGrupoID"].ToString() + "_" + dr["UsuarioTecnico"].ToString()  + "_" + dr["EstatusUsuario"].ToString() + "'>" + item.value + "</li>" + "\n");
+                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreCompleto"].ToString() + "_" + dr["LoginUsuario"].ToString() + "_" + dr["ClaveUsuario"].ToString() + "_" + dr["DescripcionUsuario"].ToString() + "_" + dr["SeguridadGrupoID"].ToString() + "_" + dr["UsuarioTecnico"].ToString() + "_" + dr["EstatusUsuario"].ToString() + "'>" + item.value + "</li>" + "\n");
                         }
                         Response.Write("</ul>");
                         Response.End();
@@ -139,7 +139,7 @@ namespace Admin
                             item.value = dr["NombreObjeto"].ToString();
                             item.id = dr["SeguridadObjetoID"].ToString();
                             item.value = item.value.Replace(Request.QueryString["query"].ToString(), "<span style='font-weight:bold;'>" + Request.QueryString["query"].ToString() + "</span>");
-                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreObjeto"].ToString() + "_" + dr["SeguridadObjetoID"].ToString() +  "'>" + item.value + "</li>" + "\n");
+                            Response.Write("\t" + "<li id=autocomplete_" + item.id + " rel='" + item.id + "_" + dr["NombreObjeto"].ToString() + "_" + dr["SeguridadObjetoID"].ToString() + "'>" + item.value + "</li>" + "\n");
                         }
                         Response.Write("</ul>");
                         Response.End();

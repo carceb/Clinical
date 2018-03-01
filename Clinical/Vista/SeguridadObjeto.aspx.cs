@@ -4,11 +4,14 @@ using System;
 
 namespace Seguridad
 {
-    public partial class SeguridadObjeto : Admin.paginaBase
+    public partial class SeguridadObjeto : System.Web.UI.Page
     {
-        protected new void Page_Load(object sender, EventArgs e)
+        protected  void Page_Load(object sender, EventArgs e)
         {
-
+            if (SeguridadUsuario.EsUsuarioPermitido(Session, 19) == false)
+            {
+                Response.Redirect("/Index.aspx");
+            }
         }
         private void ActualizarRegistros()
         {
@@ -34,11 +37,17 @@ namespace Seguridad
         {
             this.txtNombre.Text = "";
             this.hdnSeguridadObjetoID.Value = "0";
+            this.txtNombre.Focus();
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ActualizarRegistros();
+        }
+
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            LimpiarPantalla();
         }
     }
 }

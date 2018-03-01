@@ -8,10 +8,14 @@ using System.Web.UI.WebControls;
 
 namespace Seguridad
 {
-    public partial class SeguridadObjetoGrupo : Admin.paginaBase
+    public partial class SeguridadObjetoGrupo : System.Web.UI.Page
     {
-        protected new void Page_Load(object sender, EventArgs e)
+        protected  void Page_Load(object sender, EventArgs e)
         {
+            if (SeguridadUsuario.EsUsuarioPermitido(Session, 20) == false)
+            {
+                Response.Redirect("/Index.aspx");
+            }
             if (!IsPostBack)
             {
                 CargarGrupos();

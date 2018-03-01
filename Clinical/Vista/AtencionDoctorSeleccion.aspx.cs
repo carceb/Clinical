@@ -33,7 +33,7 @@ namespace Clinical
             }
             else
             {
-                strQuery = "SELECT dbo.Medico.MedicoID, dbo.Medico.SexoMedico, dbo.Medico.CedulaMedico, dbo.Medico.NombreMedico, dbo.MedicoConsultorio.ConsultorioID, dbo.SeguridadUsuarioSucursalEmpresa.SeguridadUsuarioDatosID FROM   dbo.Medico INNER JOIN dbo.MedicoConsultorio ON dbo.Medico.MedicoID = dbo.MedicoConsultorio.MedicoID INNER JOIN dbo.SeguridadUsuarioSucursalEmpresa ON dbo.MedicoConsultorio.ConsultorioID = dbo.SeguridadUsuarioSucursalEmpresa.EmpresaSucursalID WHERE dbo.MedicoConsultorio.ConsultorioID = " + Convert.ToInt32(this.Session["CodigoSucursalEmpresa"].ToString()) + " AND (dbo.SeguridadUsuarioSucursalEmpresa.SeguridadUsuarioDatosID = 30) " + Convert.ToInt32(this.Session["CodigoUsuario"].ToString());
+                strQuery = "SELECT dbo.Medico.MedicoID, dbo.Medico.SexoMedico, dbo.Medico.CedulaMedico, dbo.Medico.NombreMedico, dbo.MedicoConsultorio.ConsultorioID, dbo.SeguridadUsuarioSucursalEmpresa.SeguridadUsuarioDatosID FROM   dbo.Medico INNER JOIN dbo.MedicoConsultorio ON dbo.Medico.MedicoID = dbo.MedicoConsultorio.MedicoID INNER JOIN dbo.SeguridadUsuarioSucursalEmpresa ON dbo.MedicoConsultorio.ConsultorioID = dbo.SeguridadUsuarioSucursalEmpresa.EmpresaSucursalID WHERE dbo.MedicoConsultorio.ConsultorioID = " + Convert.ToInt32(this.Session["CodigoSucursalEmpresa"].ToString()) + " AND dbo.SeguridadUsuarioSucursalEmpresa.SeguridadUsuarioDatosID =  " + Convert.ToInt32(this.Session["CodigoUsuario"].ToString());
             }
              String strConnString = ConfigurationManager
             .ConnectionStrings["CallCenterConnectionString"].ConnectionString;

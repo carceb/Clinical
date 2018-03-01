@@ -1,4 +1,5 @@
-﻿using Seguridad.Clases;
+﻿using Seguridad;
+using Seguridad.Clases;
 using System;
 
 namespace WebVisita
@@ -7,7 +8,10 @@ namespace WebVisita
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (SeguridadUsuario.EsUsuarioPermitido(Session,999) == false)
+            {
+                Response.Redirect("/Index.aspx");
+            }
         }
         private void ActualizarClave()
         {

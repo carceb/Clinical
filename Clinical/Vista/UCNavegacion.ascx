@@ -30,13 +30,13 @@
 											<span class="opener">Atención médica</span>
 											<ul>
 												<li><ASP:HyperLink runat="server" ID ="lnkCitas"  navigateurl ="~/Vista/CitaCola.aspx"  Text ="Citas"></ASP:HyperLink></li>
-												<li><ASP:HyperLink runat="server" ID ="lnkAtencionVisita"  navigateurl ="~/Vista/Paciente.aspx"  Text ="Pacientes"></ASP:HyperLink></li>
-												<li><ASP:HyperLink runat="server" ID ="lnkHistoria"  navigateurl ="~/Vista/AtencionDoctorSeleccion.aspx"  Text ="Atención doctor"></ASP:HyperLink></li>
+												<li><ASP:HyperLink runat="server" ID ="lnkPacientes"  navigateurl ="~/Vista/Paciente.aspx"  Text ="Pacientes"></ASP:HyperLink></li>
+												<li><ASP:HyperLink runat="server" ID ="lnkConsultaDoctor"  navigateurl ="~/Vista/AtencionDoctorSeleccion.aspx"  Text ="Consulta medica"></ASP:HyperLink></li>
 											</ul>
 										</li>
 
 										<li>
-											<span class="opener">Consultas</span>
+											<span class="opener">Reportes</span>
 											<ul>
 												<li><ASP:HyperLink runat="server" ID ="lnkPacientesAtendidos"  navigateurl ="~/Vista/VisitantesAtendidos.aspx" Text ="Pacientes Atendidos"></ASP:HyperLink></li>
 											</ul>
@@ -44,10 +44,7 @@
 										<li>
 											<span class="opener">Opciones especiales</span>
 											<ul>
-												<li><ASP:HyperLink runat="server" ID ="lnkInventario"  navigateurl ="~/Vista/Medicos.aspx" Text ="Médicos"></ASP:HyperLink></li>
-												<li><ASP:HyperLink runat="server" ID ="lnkMarcaEquipo"  navigateurl ="~/Vista/Consultorio.aspx" Text ="Consultorios"></ASP:HyperLink></li>
-												<li><ASP:HyperLink runat="server" ID ="lnkModeloEquipo"  navigateurl ="~/Vista/MedicoConsultorio.aspx" Text ="Médico/Consultorio"></ASP:HyperLink></li>
-												<li><ASP:HyperLink runat="server" ID ="lnkFallasEquipo"  navigateurl ="~/Vista/MedicoCalendario.aspx" Text ="Médico Calendario"></ASP:HyperLink></li>
+
 											</ul>
 										</li>
 										<li>

@@ -1,91 +1,102 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Seguridad.aspx.cs" Inherits="Seguridad.Seguridad" %>
+<%@ Register TagPrefix="uc2" TagName="UCNavegacion" Src="~/Vista/UCNavegacion.ascx" %> 
 
-<%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
-<%@ Register TagPrefix="uc1" TagName="UCNavigation" Src="~/Vista/UCNavigation.ascx" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 
 <html>
-<head>
-    <title>| Sistema Call Center | Seguridad|</title>
-	
-	<link rel="stylesheet" href="../Styles/estilo.css" type="text/css"/>
-    <link rel="stylesheet" href="../Styles/estilos.css" type="text/css"/>
-	<script src="../js/Util.js" type="text/javascript"></script>
-    <script src="../js/jquery.js"></script>
- 
+	<head>
+		<title>Cellper | Agregar usuario</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">BODY {
-	FONT-SIZE: 8.5pt
-}
-TD {
-	FONT-SIZE: 8.5pt
-}
-TH {
-	FONT-SIZE: 8.5pt
-}
-BODY {
-	BACKGROUND-IMAGE: url(../Images/fondo_3.png); BACKGROUND-COLOR: #ffffff
-}
-</style></head>
-    <script>
+<%--        SCRIPTS--%>
+		<link rel="stylesheet"  href="../Styles/jquery-ui-1.8rc3.custom.css"  />
+		<script src="../assets/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../Styles/simpleAutoComplete.css"  />
+		<script src="../js/Util.js" type="text/javascript"></script>
+<%--        <script src="../js/jquery.js"></script>--%>      
+		<script  src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>      
+
+<%--------------------------%>
 
 
-        function Confirmacion() {
+	</head>
+	<body>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-            return confirm("¿Realmente desea eliminar este servicio?");
-        }
-    </script>  
- <body>
- <MsgBox:UCMessageBox ID="messageBox" runat="server" ></MsgBox:UCMessageBox>
-  <form id="form1" runat="server">
-<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
-    <tr>
-      <td colspan="4"><img src="../Images/top_atencion_visita_1.png" width="1000" height="160"></td>
-    </tr>
-    <tr>
-      <td width="200" rowspan="2" align="left" valign="top" bgcolor="#24496f"><uc1:UCNavigation id="UserControl2" runat="server"></uc1:UCNavigation></td>
-	  <td height="20" colspan="3" valign="top"  >&nbsp; <h2>Modulo de Seguridad</h2></td>
-    </tr>
-    <tr>
-      <td width="10" height="350" valign="top">&nbsp;</td>
-      <td width="770" valign="top" colspan="3">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-      <!-- Contenido Aqui -->
-        <table>
-            <tr>
-                <td width ="100"></td>
-                <td class="auto-style3">
-                    <asp:Button Text="1) Usuarios >>" runat="server" ID ="btnAgregarUsuario"  CssClass ="boton_formulario" OnClick="btnAgregarUsuario_Click"/>
-                </td>
-                <td class="auto-style3">
-                    <asp:Button Text="2) Grupos >>" runat="server" ID ="btnAgregarGrupo"  CssClass ="boton_formulario" OnClick="btnAgregarGrupo_Click"/>
-                </td>
-                <td class="auto-style3">
-                    <asp:Button Text="3) Objetos >>" runat="server" ID ="btnAgregarObjeto"  CssClass ="boton_formulario" OnClick="btnAgregarObjeto_Click"/>
-                </td>
-                <td class="auto-style3" >
-                    <asp:Button Text="4) Objetos/Grupos >>" runat="server" ID ="btmAgregarGrupoObjeto"  CssClass ="boton_formulario" OnClick="btmAgregarGrupoObjeto_Click"/>
-                </td>
-            </tr>
-          </table>
-      </td>
-    </tr>
-    <tr>
-      <td width="200" height="30" bgcolor="#d2d2c6">&nbsp;</td>
-      <td width="10" bgcolor="#d2d2c6">&nbsp;</td>
-      <td width="770" bgcolor="#d2d2c6">&nbsp;</td>
-      <td width="20" bgcolor="#d2d2c6">&nbsp;</td>
-    </tr>
-  </table>
-   
-  
-    </form>
-</body>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a class="logo"><strong>Agregar usuario</strong></a>
+									<ul class="icons">
+
+									</ul>
+								</header>
+
+							<!-- Content -->
+							<form runat ="server" id ="principal">	
+								<section>
+										<p></p>
+										<div class="row uniform">
+
+											<div class="12u$">
+												<ul class="actions">
+													<li><asp:Button Text="Agregar / modificar usuario" runat="server" ID ="btnAgregarUsuario"   CssClass ="special" OnClick="btnAgregarUsuario_Click"/></li>
+												</ul>
+												<hr />
+												<div class="content">
+													<h3><asp:Label runat ="server" ID ="lblOpcionesSeguridad" Text ="Opciones adicionales de seguridad"></asp:Label></h3>
+												</div>
+												 <ul class="actions">
+													<li><asp:Button Text="Grupos" runat="server" ID ="btnAgregarGrupo"    OnClick="btnAgregarGrupo_Click"/></li>
+													<li><asp:Button Text="Objetos" runat="server" ID ="btnAgregarObjeto"  OnClick="btnAgregarObjeto_Click"/></li>
+													<li><asp:Button Text="Objetos/Grupos" runat="server" ID ="btmAgregarGrupoObjeto"  OnClick="btmAgregarGrupoObjeto_Click"/></li>
+												 </ul>
+												<hr />
+												<div class="content">
+													<h3><asp:Label runat ="server" ID ="lblOpcionesEmpresa" Text ="Opciones de Empresa"></asp:Label></h3>
+												</div>
+												<ul class="actions">
+													<li><asp:Button Text="Agregar Empresa" runat="server" ID ="btnAgregarEmpresa" OnClick="btnAgregarEmpresa_Click"  /></li>
+													<li><asp:Button Text="Agregar Sucursal" runat="server" ID ="btnAgregarSucursal" OnClick="btnAgregarSucursal_Click" /></li>
+												</ul>
+												<div class="content">
+													<h3><asp:Label runat ="server" ID ="Label11" Text ="Opciones de Medico"></asp:Label></h3>
+												</div>
+												<ul class="actions">
+													<li><asp:Button Text="Medico" runat="server" ID ="btnMedico" OnClick="btnMedico_Click"  /></li>
+													<li><asp:Button Text="Consultorio" runat="server" ID ="btnConsultorio" OnClick="btnConsultorio_Click"  /></li>
+													<li><asp:Button Text="Medico/Consultorio" runat="server" ID ="btnMedicoConsultorio" OnClick="btnMedicoConsultorio_Click"  /></li>
+													<li><asp:Button Text="Medico/Calendario" runat="server" ID ="btnMedicoCalendario" OnClick="btnMedicoCalendario_Click"  /></li>
+												</ul>
+											</div>
+										</div>
+								</section>
+							</form>
+						</div>
+					</div>
+				<!-- Sidebar -->
+<%--					<div id="sidebar">
+						<div class="inner">--%>
+							<!-- Menu -->
+								<uc2:UCNavegacion  runat ="server" ID ="ControlMenu"/>
+<%--						</div>
+					</div>--%>
+			</div>
+		<!-- Scripts -->
+
+<%--        SE COLOCARON EN EL HEADER --%>
+
+	</body>
 </html>
 
 

@@ -1,141 +1,125 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeguridadObjetoGrupo.aspx.cs" Inherits="Seguridad.SeguridadObjetoGrupo" %>
-
+<%@ Register TagPrefix="uc2" TagName="UCNavegacion" Src="~/Vista/UCNavegacion.ascx" %>
 <%@ Register TagPrefix="MsgBox" Src="~/Vista/UCMessageBox.ascx" TagName="UCMessageBox" %>
-<%@ Register TagPrefix="uc1" TagName="UCNavigation" Src="~/Vista/UCNavigation.ascx" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<!DOCTYPE HTML>
 
 <html>
-<head>
-    <title>| Sistema Call Center | Asignar Objeto a Grupo|</title>
-	
-	<link rel="stylesheet" href="../Styles/estilo.css" type="text/css"/>
-    <link rel="stylesheet" href="../Styles/estilos.css" type="text/css"/>
-	<script src="../js/Util.js" type="text/javascript"></script>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
-    <link href="../Styles/simpleAutoComplete.css" rel="stylesheet" />
-    <link href="../Styles/jquery-ui-1.8rc3.custom.css" rel="stylesheet" />
+	<head>
+		<title>Seguridad | Objeto y Grupos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
+<%--        SCRIPTS--%>
+        <link rel="stylesheet"  href="../Styles/jquery-ui-1.8rc3.custom.css"  />
+        <script src="../assets/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="../assets/css/main.css" />
+        <link rel="stylesheet" href="../Styles/simpleAutoComplete.css"  />
+	    <script src="../js/Util.js" type="text/javascript"></script>
+<%--        <script src="../js/jquery.js"></script>--%>      
+        <script  src="../js/jquery-ui-1.8rc3.custom.min.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/skel.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>      
 
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">BODY {
-	FONT-SIZE: 8.5pt
-}
-TD {
-	FONT-SIZE: 8.5pt
-}
-TH {
-	FONT-SIZE: 8.5pt
-}
-BODY {
-	BACKGROUND-IMAGE: url(../Images/fondo_3.png); BACKGROUND-COLOR: #ffffff
-}
-        .auto-style3 {
-            height: 43px;
-        }
-                                                                              .auto-style4 {
-                                                                                  width: 10px;
-                                                                              }
-    </style>
-    <script>
+<%--------------------------%>
 
+    <script type="text/javascript">
 
         function Confirmacion() {
 
             return confirm("¿Realmente desea eliminar este servicio?");
         }
+
     </script>
+	</head>
+	<body>
+        <MsgBox:UCMessageBox ID="messageBox" runat="server" ></MsgBox:UCMessageBox>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-</head>
-  
-  <body>
- <MsgBox:UCMessageBox ID="messageBox" runat="server" ></MsgBox:UCMessageBox>
-  <form id="form1" runat="server">
-<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
-    <tr>
-      <td colspan="4"><img src="../Images/top_atencion_visita_1.png" width="1000" height="160"></td>
-    </tr>
-    <tr>
-      <td width="200" rowspan="2" align="left" valign="top" bgcolor="#24496f"><uc1:UCNavigation id="UserControl2" runat="server"></uc1:UCNavigation></td>
-	  <td height="20" colspan="3" valign="top"  >&nbsp; <h2> Asignar Objeto a Grupo</h2></td>
-    </tr>
-    <tr>
-      <td height="350" valign="top" class="auto-style4">&nbsp;</td>
-      <td width="770" valign="top" colspan="3">
-      <!-- Contenido Aqui -->
-          <table>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
 
+							<!-- Header -->
+								<header id="header">
+									<a class="logo"><strong>Objetos y Grupos</strong></a>
+									<ul class="icons">
 
-                <tr>
-                    <td>
-                        Grupo
-                    </td>
-                    <td>
-                          <asp:DropDownList ID="ddlGrupo" runat="server" AutoPostBack = "true"  Width="520px" OnSelectedIndexChanged="ddlGrupo_SelectedIndexChanged"></asp:DropDownList>
-                    </td>
-                    </tr>
-                <tr>
-                    <td>
-                        Objeto
-                    </td>
-                    <td>
-                          <asp:DropDownList ID="ddlObjeto" runat="server" AutoPostBack = "true"   Width="520px" > </asp:DropDownList>
-                    </td>
-                    </tr>
-                  <tr>
-                      <td></td>
-                      <td class="auto-style3" align ="center" >
-                          <asp:Button Text="Asignar Objeto" runat="server" ID ="btnAsignar"  CssClass ="boton_formulario" OnClick="btnAsignar_Click" />
-                      </td>
-                  </tr>
-                    
-          </table>
+									</ul>
+								</header>
 
-          <h2>Objetos asignados</h2>
-          
-          <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 
-              GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand" >
-                <HeaderStyle CssClass ="registroTitulo" Font-Size="10px" />
-                <AlternatingRowStyle CssClass ="registroNormal" Font-Size="10px" />
-                  <RowStyle CssClass ="registroAlternado" Font-Size="10px" />
-              <Columns>
-                  <asp:TemplateField HeaderText="Nombre de Grupo" HeaderStyle-Width="200">
-                      <ItemTemplate>
-                          <asp:Label runat="server" ID="lblNombreGrupo" Text='<%# Eval("NombreGrupo") %>'></asp:Label>
-                      </ItemTemplate>
-                  </asp:TemplateField>
-                  <asp:TemplateField HeaderText="Descripción Grupo" HeaderStyle-Width="200">
-                      <ItemTemplate>
-                          <asp:Label runat="server" ID="lblDesGrupo" Text='<%# Eval("DescripcionGrupo") %>'></asp:Label>
-                      </ItemTemplate>
-                  </asp:TemplateField>
-                  <asp:TemplateField HeaderText="Nombre Objeto" HeaderStyle-Width="200px">
-                      <ItemTemplate>
-                          <asp:Label runat="server" ID="lblNombreObjeto" Text='<%# Eval("NombreObjeto") %>'></asp:Label>
-                      </ItemTemplate>
-                  </asp:TemplateField>
+							<!-- Content -->
+							<form runat ="server" id ="principal">	
+                                <section>
+                                        <p></p>
+                                        <div class="row uniform">
+									        <div class="6u 12u$(xsmall)">
+                                                <div class="select-wrapper">
+                                                    <asp:DropDownList ID="ddlGrupo" runat="server"  AppendDataBoundItems="True" AutoPostBack = "true" OnSelectedIndexChanged="ddlGrupo_SelectedIndexChanged"></asp:DropDownList>
+                                                </div>
+									        </div>
+                                            <div class="6u 12u$(xsmall)"> 
+                                                <div class="select-wrapper">
+                                                    <asp:DropDownList ID="ddlObjeto" runat="server"  AppendDataBoundItems="True"  > </asp:DropDownList>
+                                                </div>
+                                            </div>
+										    <div class="12u$">
+											    <ul class="actions">
+                                                    <asp:Button Text="Asignar Objeto" runat="server" ID ="btnAsignar"  CssClass ="special" OnClick="btnAsignar_Click" />
+                                                    <li><asp:Button Text="Nuevo registro" runat="server" ID ="btnNuevo" CausesValidation="False" /></li>
+											    </ul>
+										    </div>
+                                            <div class="table-wrapper">
+                                                  <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 
+                                                      GridLines="Horizontal" AutoGenerateColumns="False" OnRowCommand="gridDetalle_RowCommand" >
+                                                        <HeaderStyle CssClass ="registroTitulo" Font-Size="10px" />
+                                                        <AlternatingRowStyle CssClass ="registroNormal" Font-Size="10px" />
+                                                          <RowStyle CssClass ="registroAlternado" Font-Size="10px" />
+                                                      <Columns>
+                                                          <asp:TemplateField HeaderText="Nombre de Grupo" HeaderStyle-Width="200">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblNombreGrupo" Text='<%# Eval("NombreGrupo") %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
+                                                          <asp:TemplateField HeaderText="Descripción Grupo" HeaderStyle-Width="200">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblDesGrupo" Text='<%# Eval("DescripcionGrupo") %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
+                                                          <asp:TemplateField HeaderText="Nombre Objeto" HeaderStyle-Width="200px">
+                                                              <ItemTemplate>
+                                                                  <asp:Label runat="server" ID="lblNombreObjeto" Text='<%# Eval("NombreObjeto") %>'></asp:Label>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
 
-                   <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100px">
-                      <ItemTemplate>
-                          <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.gif"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("SeguridadObjetoAccesoID") %>'/>
-                      </ItemTemplate>
-                  </asp:TemplateField>
-              </Columns>
-          </asp:GridView>
+                                                           <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="100px">
+                                                              <ItemTemplate>
+                                                                  <asp:ImageButton runat="server" ID="btnEliminar" AlternateText="Eliminar Detalle" OnClientClick="return Confirmacion();" ToolTip="Eliminar Detalle" CssClass="cBotones" ImageUrl="~/Images/eliminar.gif"  CommandName="EliminarDetalle" CommandArgument='<%# Eval("SeguridadObjetoAccesoID") %>'/>
+                                                              </ItemTemplate>
+                                                          </asp:TemplateField>
+                                                      </Columns>
+                                                  </asp:GridView>
+                                            </div>
+                                        </div>
+								</section>
+                            </form>
+						</div>
+					</div>
+				<!-- Sidebar -->
+<%--					<div id="sidebar">
+						<div class="inner">--%>
+							<!-- Menu -->
+                                <uc2:UCNavegacion  runat ="server" ID ="ControlMenu"/>
+<%--						</div>
+					</div>--%>
+			</div>
+		<!-- Scripts -->
 
+<%--        SE COLOCARON EN EL HEADER --%>
 
-
-      </td>
-
-    </tr>
-    <tr>
-      <td width="200" height="30" bgcolor="#d2d2c6">&nbsp;</td>
-      <td bgcolor="#d2d2c6" class="auto-style4">&nbsp;</td>
-      <td width="770" bgcolor="#d2d2c6">&nbsp;</td>
-      <td width="20" bgcolor="#d2d2c6">&nbsp;</td>
-    </tr>
-  </table>
-   
-  
-    </form>
-</body>
+	</body>
 </html>
+

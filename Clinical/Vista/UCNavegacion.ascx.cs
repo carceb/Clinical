@@ -22,39 +22,23 @@ namespace Clinical.Vista
             if (objetoSeguridad.EsUsuarioAdministrador() == false)
             {
                 ColocarEnlacesInvisibles();
-                if (objetoSeguridad.EsAccesoPermitido(9) == true)
+                if (objetoSeguridad.EsAccesoPermitido(22) == true)
                 {
                     lnkCitas.Visible = true;
                 }
-                if (objetoSeguridad.EsAccesoPermitido(10) == true)
+                if (objetoSeguridad.EsAccesoPermitido(23) == true)
                 {
-                    lnkAtencionVisita.Visible = true;
+                    lnkPacientes.Visible = true;
                 }
-                if (objetoSeguridad.EsAccesoPermitido(11) == true)
+                if (objetoSeguridad.EsAccesoPermitido(24) == true)
                 {
-                    lnkHistoria.Visible = true;
+                    lnkConsultaDoctor.Visible = true;
                 }
                 if (objetoSeguridad.EsAccesoPermitido(12) == true)
                 {
                     lnkPacientesAtendidos.Visible = true;
                 }
-                if (objetoSeguridad.EsAccesoPermitido(13) == true)
-                {
-                    lnkInventario.Visible = true;
-                }
-                if (objetoSeguridad.EsAccesoPermitido(14) == true)
-                {
-                    lnkMarcaEquipo.Visible = true;
-                }
-                if (objetoSeguridad.EsAccesoPermitido(15) == true)
-                {
-                    lnkModeloEquipo.Visible = true;
-                }
-                if (objetoSeguridad.EsAccesoPermitido(16) == true)
-                {
-                    lnkFallasEquipo.Visible = true;
-                }
-                if (objetoSeguridad.EsAccesoPermitido(17) == true)
+                if (objetoSeguridad.EsAccesoPermitido(25) == true)
                 {
                     lnkSeguridad.Visible = true;
                 }
@@ -63,13 +47,9 @@ namespace Clinical.Vista
         private void ColocarEnlacesInvisibles()
         {
             lnkCitas.Visible = false;
-            lnkAtencionVisita.Visible = false;
-            lnkHistoria.Visible = false;
+            lnkPacientes.Visible = false;
+            lnkConsultaDoctor.Visible = false;
             lnkPacientesAtendidos.Visible = false;
-            lnkInventario.Visible = false;
-            lnkMarcaEquipo.Visible = false;
-            lnkModeloEquipo.Visible = false;
-            lnkFallasEquipo.Visible = false;
             lnkSeguridad.Visible = false;
         }
     }

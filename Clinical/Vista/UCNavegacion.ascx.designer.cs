@@ -22,22 +22,22 @@ namespace Clinical.Vista {
         protected global::System.Web.UI.WebControls.HyperLink lnkCitas;
         
         /// <summary>
-        /// lnkAtencionVisita control.
+        /// lnkPacientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAtencionVisita;
+        protected global::System.Web.UI.WebControls.HyperLink lnkPacientes;
         
         /// <summary>
-        /// lnkHistoria control.
+        /// lnkConsultaDoctor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkHistoria;
+        protected global::System.Web.UI.WebControls.HyperLink lnkConsultaDoctor;
         
         /// <summary>
         /// lnkPacientesAtendidos control.
@@ -47,42 +47,6 @@ namespace Clinical.Vista {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkPacientesAtendidos;
-        
-        /// <summary>
-        /// lnkInventario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkInventario;
-        
-        /// <summary>
-        /// lnkMarcaEquipo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkMarcaEquipo;
-        
-        /// <summary>
-        /// lnkModeloEquipo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkModeloEquipo;
-        
-        /// <summary>
-        /// lnkFallasEquipo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkFallasEquipo;
         
         /// <summary>
         /// lnkSeguridad control.

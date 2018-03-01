@@ -131,7 +131,7 @@
                                                           </asp:TemplateField>
                                                           <asp:TemplateField HeaderText="Motivo Consulta">
                                                               <ItemTemplate>
-                                                                  <asp:Label runat="server" ID="lblMotivo" Text='<%# Eval("MotivoConsulta") %>' ></asp:Label>
+                                                                  <asp:Label runat="server" ID="lblMotivo" Text='<%# Eval("DescripcionPadecimiento") %>' ></asp:Label>
                                                               </ItemTemplate>
                                                           </asp:TemplateField>
                                                            <asp:TemplateField HeaderText="Doctor">

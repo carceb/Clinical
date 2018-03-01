@@ -106,6 +106,7 @@ namespace Clinical
         }
         protected void ddlEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
+            hdnCodigoCiudad.Value = "0";
             CargarCiudad(Convert.ToInt32(ddlEstado.SelectedItem.Value));
         }
         private void AgregarConsultorio()

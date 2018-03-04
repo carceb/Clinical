@@ -55,7 +55,7 @@
                         <ul>
                             <li><a href="../Index.aspx">Home</a></li>
                             <li><a href="Cita.aspx">Citas </a></li>
-                            <li><a href="../Login.aspx">Entrar al sistema (M&eacute;dicos afiliados)</a></li>
+                            <li><a href="Login.aspx">Entrar al sistema (M&eacute;dicos afiliados)</a></li>
                         </ul>
                     </nav>
 

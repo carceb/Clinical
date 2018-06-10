@@ -360,7 +360,7 @@ namespace Admin
             {
                 Result = e.Message; //GetExceptionMessage(translation.GetCurrentLanguage(Page), e);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Result = "";//GetExceptionMessage("ITA", ex);
 

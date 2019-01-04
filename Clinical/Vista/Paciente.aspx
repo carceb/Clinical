@@ -9,7 +9,7 @@
 
 <html>
     <head>
-        <title>| clinical | Cola de Citas|</title>
+        <title>| clinical | Paciente|</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -157,7 +157,7 @@
                         <div class="inner">
                             <!-- Header -->
                                 <header id="header">
-                                    <a class="logo"><strong>Recepción de Equipos</strong></a>
+                                    <a class="logo"><strong>Paciente</strong></a>
                                     <ul class="icons">
 
                                     </ul>
@@ -230,6 +230,7 @@
                                                 <ul class="actions">
                                                     <li><asp:Button Text="Actualizar" runat="server" ID ="btnGuardar"  CssClass ="special" OnClick="btnGuardar_Click"/></li>
                                                     <li><asp:Button Text="Nuevo registro" runat="server" ID ="btnNuevo"  OnClick="btnNuevo_Click"/></li>
+                                                    <li><asp:Button Text="Volver a citas" runat="server" ID ="btnVolverCitas" OnClick ="btnVolverCitas_Click" Visible="false"  CausesValidation="false"/></li>
                                                     <li><asp:Button Text="Ciudad" runat="server" ID ="btnCiudad" Style="display: none" OnClick="btnCiudad_Click"/></li>
                                                 </ul>
                                             </div>

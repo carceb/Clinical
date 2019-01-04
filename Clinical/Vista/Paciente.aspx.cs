@@ -21,6 +21,7 @@ namespace Clinical
                 {
                     txtCedula.Text = Request.QueryString["Cedula"];
                     txtNombre.Text = Request.QueryString["Nombre"];
+                    btnVolverCitas.Visible = true;
                 }
             }
         }
@@ -218,6 +219,11 @@ namespace Clinical
             txtDireccion.Text = "";
             hdnCodigoCiudad.Value = "0";
             hdnPacienteID.Value = "0";
+        }
+
+        protected void btnVolverCitas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Vista/CitaCola.aspx");
         }
     }
 }

@@ -28,7 +28,13 @@
         <script src="../assets/js/util.js" type ="text/javascript"></script>
         <script src="../assets/js/main.js" type ="text/javascript"></script>      
 <%--------------------------%>
-
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var intervalFunction = setInterval(function(){
+                    RefrescarPagina();
+                }, 20000);
+            });
+        </script>
 
     <script type="text/javascript">
 
@@ -38,6 +44,13 @@
             return confirm("¿Realmente desea eliminar este registro?, no podrá deshacer");
         }
 
+    </script>
+
+    <script type="text/javascript">
+		    function RefrescarPagina() {
+			    var bt = document.getElementById("btnTest");
+			    bt.click();
+		    }
     </script>
 
     </head>
@@ -74,6 +87,7 @@
                                         </div>
                                         <ul class="actions">
                                                 <%--separador--%>
+                                                <li><asp:Button Text="TEST" runat="server" ID ="btnTest"  style="display:none" CausesValidation="False" OnClick="btnTest_Click"/></li>
                                         </ul>
                                             <div class="table-wrapper">
                                                   <asp:GridView ID="gridDetalle" runat="server" CssClass="subtitulo" EmptyDataText="No existen Registros" 

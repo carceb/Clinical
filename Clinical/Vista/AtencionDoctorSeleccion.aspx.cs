@@ -118,5 +118,11 @@ namespace Clinical
         {
             CargarCitas();
         }
+
+        protected void btnTest_Click(object sender, EventArgs e)
+        {
+            CargarMedicos();
+            CargarCitas();
+        }
     }
 }

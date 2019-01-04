@@ -8,7 +8,7 @@ namespace Clinical
 
         }
 
-        public CCita(int _medicoConsultorioID, string _fechaCita, string _cedulaPacienteCita, string _nombrePacienteCita, string _celularPacienteCita, string _emailPacienteCita, int _estatusCitaID, int _citaMotivoID, int _citaID, string _descripcionPadecimiento)
+        public CCita(int _medicoConsultorioID, string _fechaCita, string _cedulaPacienteCita, string _nombrePacienteCita, string _celularPacienteCita, string _emailPacienteCita, int _estatusCitaID, int _citaMotivoID, int _citaID, string _descripcionPadecimiento, int _ordenLlegada)
         {
             this._medicoConsultorioID = _medicoConsultorioID;
             this._fechaCita = _fechaCita;
@@ -19,6 +19,7 @@ namespace Clinical
             this._estatusCitaID = _estatusCitaID;
             this._citaMotivoID = _citaMotivoID;
             this._citaID = _citaID;
+            this._ordenLlegada = _ordenLlegada;
         }
 
         private int _medicoConsultorioID;
@@ -31,6 +32,7 @@ namespace Clinical
         private int _citaMotivoID;
         private int _citaID;
         private string _descripcionPadecimiento;
+        private int _ordenLlegada;
 
         public int MedicoConsultorioID
         {
@@ -156,6 +158,18 @@ namespace Clinical
             set
             {
                 _descripcionPadecimiento = value;
+            }
+        }
+        public int OrdenDeLLegada
+        {
+            get
+            {
+                return _ordenLlegada;
+            }
+
+            set
+            {
+                _ordenLlegada = value;
             }
         }
     }

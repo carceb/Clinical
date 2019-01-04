@@ -113,13 +113,12 @@
 														<AlternatingRowStyle  Font-Size="10px" />
 														  <RowStyle CssClass ="registroAlternado" Font-Size="10px" />
 													  <Columns>
-														  <asp:TemplateField HeaderText="CodV" HeaderStyle-Width="0" Visible="false">
+										                <asp:TemplateField HeaderText="CodV" HeaderStyle-Width="0" Visible="false">
 															  <ItemTemplate>
 																  <asp:TextBox runat="server" ID="txtCitaID" Visible ="false"   Width="0" ForeColor ="Red" Text='<%# Eval("CitaID") %>' ></asp:TextBox>
 															  </ItemTemplate>
 														<HeaderStyle Width="0px"></HeaderStyle>
 														  </asp:TemplateField>
-
 														 <asp:TemplateField HeaderText="Medico">
 															  <ItemTemplate>
 																  <asp:DropDownList runat="server" ID="ddlMedico"
@@ -142,24 +141,27 @@
 																</asp:SqlDataSource>
 															  </ItemTemplate>
 														  </asp:TemplateField>
-
-
 														  <asp:TemplateField HeaderText="CodigoMedico" HeaderStyle-Width="0" Visible="false">
 															  <ItemTemplate>
 																  <asp:Label runat="server" ID="lblCodigoMedicoConsultorio" Visible="false" Width = "0" Text='<%# Eval("MedicoConsultorioID") %>' ></asp:Label>
 															  </ItemTemplate>
 														  </asp:TemplateField>
-
-														   <asp:TemplateField HeaderText="Cédula Paciente">
-															  <ItemTemplate>
-																  <asp:Label runat="server" ID="lblCedula" Text='<%# Eval("CedulaPacienteCita") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusCitaID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
-															  </ItemTemplate>
-														  </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Orden"  HeaderStyle-Width="50">
+                                                            <ItemTemplate>
+                                                                <asp:TextBox runat="server" ID="txtOrdenLLegada" Text='<%# Eval("OrdenDeLlegada") %>'></asp:TextBox>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 														  <asp:TemplateField HeaderText="Nombre Paciente"  >
 															  <ItemTemplate>
 																  <asp:Label runat="server" ID="lblNombrePaciente" Text='<%# Eval("NombrePacienteCita") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusCitaID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
 															  </ItemTemplate>
 														  </asp:TemplateField>
+														   <asp:TemplateField HeaderText="Cédula Paciente">
+															  <ItemTemplate>
+																  <asp:Label runat="server" ID="lblCedula" Text='<%# Eval("CedulaPacienteCita") %>' Font-Bold ="true" ForeColor = '<%# Eval("EstatusCitaID").ToString() == "1"?System.Drawing.Color.Red:System.Drawing.Color.Blue %>'></asp:Label>
+															  </ItemTemplate>
+														  </asp:TemplateField>
+
 														  <asp:TemplateField HeaderText="Estado">
 															  <ItemTemplate>
 																  <asp:LinkButton runat="server" ID="lnkEstadoHistoria" Text='<%# Eval("PacienteRegistrado") %>'  PostBackUrl ='<%# String.Format("Paciente.aspx?Cedula={0}&Nombre={1}",Eval("CedulaPacienteCita"),Eval("NombrePacienteCita")) %>' Font-Underline="true" ForeColor ="Purple" Font-Bold ="true" Visible = '<%# Eval("PacienteRegistrado").ToString() == "[PACIENTE SIN HISTORIA MEDICA]"?true:false %>'></asp:LinkButton>

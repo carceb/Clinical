@@ -70,10 +70,9 @@ namespace Clinical
                     {
                         contadorRegistros = contadorRegistros + 1;
                         CitaCola.ActuaizarEstatusCita(prod);
-                        CargarCitas();
-
                     }
-                    if (contadorRegistros > 0)
+                    CargarCitas();
+                if (contadorRegistros > 0)
                     {
                         messageBox.ShowMessage("Lista actualizada.");
                     }
@@ -98,6 +97,7 @@ namespace Clinical
                 string estatusPaciente = "";
                 string sResultado = "";
                 CCita objetoAsignaEstatus = null;
+                
                 int j = 1;
                 foreach (GridViewRow dr in this.gridDetalle.Rows)
                 {
@@ -109,6 +109,7 @@ namespace Clinical
                     objetoAsignaEstatus.CedulaPacienteCita = Utils.utils.ToString(((Label)dr.FindControl("lblCedula")).Text);
                     objetoAsignaEstatus.MedicoConsultorioID = Utils.utils.ToInt(((DropDownList)dr.FindControl("ddlMedico")).SelectedValue);
                     estatusPaciente = Utils.utils.ToString(((LinkButton)dr.FindControl("lnkEstadoHistoria")).Text);
+                    objetoAsignaEstatus.OrdenDeLLegada = Utils.utils.ToInt(((TextBox)dr.FindControl("txtOrdenLLegada")).Text);
                     if (objetoAsignaEstatus.EstatusCitaID == 3)
                     {
                         if (estatusPaciente == "[PACIENTE SIN HISTORIA MEDICA]")
@@ -132,27 +133,24 @@ namespace Clinical
                         {
                             nombreMedico = Utils.utils.ToString(((DropDownList)dr.FindControl("ddlMedico")).SelectedItem);
                         }
-
                         totalEnAtencion += 1;
                     }
                     if (totalEnAtencion > 1)
                     {
-                        var x = Utils.utils.ToString(((DropDownList)dr.FindControl("ddlMedico")).SelectedItem);
                         if (nombreMedico == Utils.utils.ToString(((DropDownList)dr.FindControl("ddlMedico")).SelectedItem))
                         {
                             sResultado = "Solo puede enviar a la atención médica a un paciente a la vez.";
                             return sResultado;
                         }
                     }
-                    if (objetoAsignaEstatus.EstatusCitaID == 0)
-                        sResultado = "Estatus <br>";
-                    objetoAsignarEstatus.Add(objetoAsignaEstatus);
-
-                    if (sResultado != "")
+                    if (Utils.utils.ToString(((TextBox)dr.FindControl("txtOrdenLLegada")).Text) =="")
                     {
-                        sResultado = "En la Fila " + j.ToString() + " faltan ingresar los siguientes datos:<br><br>" + sResultado;
-                        break;
+                        sResultado = "Debe colocar el orden de llegada.";
+                        return sResultado;
                     }
+
+
+                    objetoAsignarEstatus.Add(objetoAsignaEstatus);
                     j++;
                 }
 
